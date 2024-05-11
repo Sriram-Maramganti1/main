@@ -1,0 +1,150 @@
+h1 {
+    font-family: "press Start 2P";
+    text-align: center;
+}
+
+body {
+    background-color: lightgreen;
+    color: #000080;
+    font-family: "press Start 2P";
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #000080;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: lightgreen;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #504b43;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: press Start 2P;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background: lightgreen;
+  color: #000080;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container h1 {
+  font-size: 80px ;
+  font-weight: 600;
+}
+
+span {
+  color: #504b43;
+}
+
+.curtain {
+  margin: 0 auto;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  
+  &__wrapper {
+    width: 100%;
+    height: 100%;
+    
+    input[type=checkbox] {
+      position: absolute;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+      z-index: 100;
+      opacity: 0;
+      top: 0;
+      left: 0;
+      
+      &:checked {
+        
+        &~div.curtain__panel--left {
+          transform: translateX(0);
+        }
+        
+        &~div.curtain__panel--right {
+          transform: translateX(0);
+        }
+      }
+    }
+  }
+  
+  &__panel {
+    display: flex;
+    align-items: center;
+    background: orange;
+    color: #fff;
+    float: left;
+    position: relative;
+    width: 50%;
+    height: 100vh;
+    transition: all 1s ease-out;
+    z-index: 2;
+    &--left {
+      justify-content: flex-end;
+      transform: translateX(-100%);
+    }
+    &--right {
+      justify-content: flex-start;
+      transform: translateX(100%);
+    }
+  }
+  
+  &__content {
+    align-items: center;
+    background: #333;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    padding: 1rem 0;
+    position: absolute;
+    text-align: center;
+    z-index: 1;
+    width: 100%;
+    
+    img {
+      width: 20%;
+    }
+  }
+
+}
